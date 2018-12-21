@@ -26,4 +26,4 @@ N-S equations are fundamental, interesting, and difficult to understand without 
 # What's more
 If you are interesed in simulation and interaction. You may want to see the implement details in Assignment 2.pdf and Assignment 3.pdf. 
 
-![result](https://github.com/JustLuoxi/HairAirSimulation/blob/master/result.jpg "result")
+<img src="https://github.com/JustLuoxi/HairAirSimulation/blob/master/result.jpg" height="300">
