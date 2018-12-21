@@ -409,13 +409,6 @@ void Air::advect(int b, GLfloat *x_c, GLfloat *x_p, GLfloat *vx, GLfloat *vy, GL
 
                 x_c[IDX(i,j,k)] = trilinearInterpolation(x,y,z,x_p);
 
-                //                if (x<0.5f) x=0.5f; if (x>N+0.5f) x=N+0.5f; i0=(int)x; i1=i0+1;
-                //                if (y<0.5f) y=0.5f; if (y>N+0.5f) y=N+0.5f; j0=(int)y; j1=j0+1;
-                //                if (z<0.5f) z=0.5f; if (z>N+0.5f) z=N+0.5f; k0=(int)z; k1=k0+1;
-
-                //                s1 = x-i0; s0 = 1-s1; t1 = y-j0; t0 = 1-t1; u1 = z-k0; u0 = 1-u1;
-                //                x_c[IDX(i,j,k)] = s0*(t0*u0*x_p[IDX(i0,j0,k0)]+t1*u0*x_p[IDX(i0,j1,k0)]+t0*u1*x_p[IDX(i0,j0,k1)]+t1*u1*x_p[IDX(i0,j1,k1)])+
-                //                    s1*(t0*u0*x_p[IDX(i1,j0,k0)]+t1*u0*x_p[IDX(i1,j1,k0)]+t0*u1*x_p[IDX(i1,j0,k1)]+t1*u1*x_p[IDX(i1,j1,k1)]);
             }
         }
     }

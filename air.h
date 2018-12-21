@@ -87,7 +87,7 @@ private:
 
     void createGrid();
 
-    void setBound(int b, GLfloat *v); // ??
+    void setBound(int b, GLfloat *v);
     void mySolver(int b, GLfloat *v, GLfloat *v_p, GLfloat a, GLfloat c);
     void diffuse(int b, GLfloat *v, GLfloat *v_p, GLfloat diff, GLfloat dt);
     void advect(int b, GLfloat *d, GLfloat *d_p, GLfloat *vx,GLfloat *vy, GLfloat *vz,GLfloat dt);
