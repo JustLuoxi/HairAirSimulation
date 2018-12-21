@@ -1,7 +1,7 @@
 # HairAirSimulation
 <img src="https://github.com/JustLuoxi/HairAirSimulation/blob/master/interface.jpg" height="300">
 
-Qt: 5.8.0
+Qt: 5.8.0    
 Compiler: Desktop Qt 5.8.0 MSVC2015_64bit
 
 # Introduction 
