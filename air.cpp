@@ -45,6 +45,10 @@ void Air::HairInfluenceAir()
     int kernel = 1;
     int x0,x1,y0,y1,z0,z1;
 
+    for(int i=0;i<N*N*N;i++)
+    {
+        weights[i]=0;
+    }
 
     for(int i=0;i<this->hair->m_guide_hairlines.size();i++)
     {
@@ -71,9 +75,9 @@ void Air::HairInfluenceAir()
                 for(int jj=y0-kernel+1;jj<y0+kernel;jj++){
                     for(int kk=z0-kernel+1;kk<z0+kernel;kk++){
                         if(ii<2||ii>N-2||jj<2||jj>N-2||kk<2||kk>N-2) continue;
-                        //                        this->m_grid->Vx[IDX(ii,jj,kk)] = hairv.x()/AIR2HAIRSCALE;
-                        //                        this->m_grid->Vy[IDX(ii,jj,kk)] = hairv.y()/AIR2HAIRSCALE;
-                        //                        this->m_grid->Vz[IDX(ii,jj,kk)] = hairv.z()/AIR2HAIRSCALE;
+//                                                this->m_grid->Vx[IDX(ii,jj,kk)] = checkSpeed( hairv.x())/AIR2HAIRSCALE;
+//                                                this->m_grid->Vy[IDX(ii,jj,kk)] = checkSpeed( hairv.y())/AIR2HAIRSCALE;
+//                                                this->m_grid->Vz[IDX(ii,jj,kk)] = checkSpeed( hairv.z())/AIR2HAIRSCALE;
                         this->m_grid->Vx[IDX(ii,jj,kk)] = 0.0f;
                         this->m_grid->Vy[IDX(ii,jj,kk)] = 0.0f;
                         this->m_grid->Vz[IDX(ii,jj,kk)] = 0.0f;
@@ -87,10 +91,12 @@ void Air::HairInfluenceAir()
                         if(ii<2||ii>N-2||jj<2||jj>N-2||kk<2||kk>N-2) continue;
                         l2 = (id_x - ii)*(id_x-ii) + (id_y-jj)*(id_y-jj)+(id_z-kk)*(id_z-kk);
                         w = std::exp(-l2);
+                        if(w<0.001)
+                            qDebug()<<w;
                         weights[IDX(ii,jj,kk)] += w;
-                        this->m_grid->Vx[IDX(ii,jj,kk)] += w*hairv.x()/AIR2HAIRSCALE;
-                        this->m_grid->Vy[IDX(ii,jj,kk)] += w*hairv.y()/AIR2HAIRSCALE;
-                        this->m_grid->Vz[IDX(ii,jj,kk)] += w*hairv.z()/AIR2HAIRSCALE;
+                        this->m_grid->Vx[IDX(ii,jj,kk)] += w*checkSpeed( hairv.x())/AIR2HAIRSCALE;
+                        this->m_grid->Vy[IDX(ii,jj,kk)] += w*checkSpeed( hairv.y())/AIR2HAIRSCALE;
+                        this->m_grid->Vz[IDX(ii,jj,kk)] += w*checkSpeed( hairv.z())/AIR2HAIRSCALE;
                     }
                 }
             }
@@ -496,6 +502,12 @@ int Air::check2ID(GLfloat &x)
     if(x<0.5f) x = 0.5f;
     if(x>N + 0.5f) x = N + 0.5f;
     return floorf(x);
+}
+
+GLfloat Air::checkSpeed(GLfloat x)
+{
+    return x>100 ? 100:x;
+
 }
 
 

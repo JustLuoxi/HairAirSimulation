@@ -95,6 +95,7 @@ private:
     GLfloat trilinearInterpolation(GLfloat x, GLfloat y, GLfloat z, GLfloat *source);
 
     int check2ID(GLfloat &x);
+    GLfloat checkSpeed(GLfloat x);
 
     // for rendering
     GLuint VBO;
