@@ -1,5 +1,4 @@
 # HairAirSimulation
-#<img src="https://github.com/JustLuoxi/HairAirSimulation/blob/master/interface.jpg" height="300">
 
 Qt: 5.8.0    
 Compiler: Desktop Qt 5.8.0 MSVC2015_64bit
@@ -29,4 +28,4 @@ N-S equations are fundamental, interesting, and difficult to understand without 
 # What's more
 If you are interesed in simulation and interaction. You may want to see the implement details in Assignment 2.pdf and Assignment 3.pdf. 
 
-#<img src="https://github.com/JustLuoxi/HairAirSimulation/blob/master/result.jpg" height="300">
+
